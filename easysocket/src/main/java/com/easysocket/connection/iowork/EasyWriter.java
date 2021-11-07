@@ -90,7 +90,7 @@ public class EasyWriter implements IWriter<EasySocketOptions> {
     };
 
     @Override
-    public void write(byte[] sendBytes) throws IOException {
+    public void write(byte[] sendBytes) throws IOException ,NullPointerException{
         if (sendBytes != null) {
             LogUtil.d("Socket发送数据String-->" + new String(sendBytes, Charset.forName("utf-8")));
             LogUtil.d("Socket发送数据byte[]-->" + Arrays.toString(sendBytes));

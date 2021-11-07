@@ -62,7 +62,7 @@ public class EasyReader implements IReader<EasySocketOptions> {
     }
 
     @Override
-    public void read() throws IOException, ReadRecoverableExeption, ReadUnrecoverableException {
+    public void read() throws IOException, ReadRecoverableExeption, ReadUnrecoverableException,NullPointerException {
         OriginReadData originalData = new OriginReadData();
         IMessageProtocol messageProtocol = socketOptions.getMessageProtocol();
         // 消息协议为null，则直接读原始消息，不建议这样使用，因为会发生黏包、分包的问题
@@ -223,7 +223,7 @@ public class EasyReader implements IReader<EasySocketOptions> {
         }
     }
 
-    private void readOriginDataFromSteam(OriginReadData readData) throws ReadRecoverableExeption, IOException {
+    private void readOriginDataFromSteam(OriginReadData readData) throws ReadRecoverableExeption, IOException, NullPointerException {
         // 用 全局originBuf避免重复创建字节数组
         int len = -1;
 

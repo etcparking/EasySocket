@@ -17,7 +17,7 @@ import java.util.Map;
  */
 public class ConnectionHolder {
 
-    private volatile Map<String, IConnectionManager> mConnectionManagerMap = new HashMap<>();
+    private final Map<String, IConnectionManager> mConnectionManagerMap = new HashMap<>();
 
 
     private static class InstanceHolder {
