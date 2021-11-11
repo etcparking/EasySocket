@@ -236,13 +236,15 @@ public class EasyReader implements IReader<EasySocketOptions> {
         }
         // bytes复制
         byte[] data = new byte[len];
-        originBuf.get(data, 0, len);
-        readData.setBodyData(data);
-        LogUtil.d("Socket收到数据-->" + readData.getBodyString());
-        // 分发数据
-        actionDispatch.dispatchAction(IOAction.ACTION_READ_COMPLETE, readData);
-        // 相当于把指针重新指向positon=0
-        originBuf.clear();
+        if (originBuf != null) {
+            originBuf.get(data, 0, len);
+            readData.setBodyData(data);
+            LogUtil.d("Socket收到数据-->" + readData.getBodyString());
+            // 分发数据
+            actionDispatch.dispatchAction(IOAction.ACTION_READ_COMPLETE, readData);
+            // 相当于把指针重新指向positon=0
+            originBuf.clear();
+        }
     }
 
     private void readBodyFromStream(ByteBuffer byteBuffer) throws ReadRecoverableExeption, IOException {
