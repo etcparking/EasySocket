@@ -6,9 +6,10 @@ import java.io.IOException;
 import java.net.Socket;
 
 /**
- * Author£ºAlex
- * Date£º2019/5/28
- * Note£º
+ * Author Alex
+ * update by jambestwick
+ * Date 2019/5/28
+ * Note SocketServer IO
  */
 public class ServerIOManager implements IIOManager {
 
@@ -17,7 +18,7 @@ public class ServerIOManager implements IIOManager {
      */
     private IWriter writer;
     /**
-     * io¶Á
+     * ioï¿½ï¿½
      */
     private IReader reader;
 
@@ -29,11 +30,11 @@ public class ServerIOManager implements IIOManager {
         }
     }
 
-    //³õÊ¼»¯io
+    //åˆå§‹åŒ–IO
     private void initIO(Socket socket) throws IOException {
         writer = new ServerWriter(socket.getOutputStream(), socket); //Ğ´
         HandlerIO handlerIO = new HandlerIO(writer);
-        reader = new ServerReader(socket.getInputStream(), socket, handlerIO); //¶Á
+        reader = new ServerReader(socket.getInputStream(), socket, handlerIO); //ï¿½ï¿½
     }
 
     @Override
@@ -59,7 +60,7 @@ public class ServerIOManager implements IIOManager {
     }
 
 //    /**
-//     * È·±£°ü½á¹¹Ğ­Òé²»Îª¿Õ
+//     * åˆ¤æ–­socketåŒ…å¤´ä¸ä¸ºç©º
 //     */
 //    private void makesureHeaderProtocolNotEmpty() {
 //        IReaderProtocol protocol = connectionManager.getOptions().getReaderProtocol();

@@ -169,6 +169,7 @@ public abstract class SuperConnection implements IConnectionManager {
         // 开启断开连接线程
         String info = socketAddress.getIp() + " : " + socketAddress.getPort();
         Thread disconnThread = new DisconnectThread(isNeedReconnect, "disconn thread：" + info);
+        //thread.setDaemon(true);当为守护线程的时候,即可主线程结束，disconnThread线程也结
         disconnThread.setDaemon(true);
         disconnThread.start();
     }

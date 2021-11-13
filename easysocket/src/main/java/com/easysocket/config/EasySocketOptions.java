@@ -333,7 +333,7 @@ public class EasySocketOptions {
         options.easySSLConfig = null;
         options.socketFactory = null;
         options.callbackIDFactory = null;
-        options.requestTimeout = 10 * 1000; // 默认十秒
+        options.requestTimeout = 10 * 1000L; // 默认十秒
         options.isOpenRequestTimeout = true; // 默认开启
         options.charsetName = "UTF-8";
         return options;

@@ -207,7 +207,7 @@ public class EasyReader implements IReader<EasySocketOptions> {
     };
 
 
-    private void readHeaderFromSteam(ByteBuffer headBuf, int readLength) throws ReadRecoverableExeption, IOException {
+    private void readHeaderFromSteam(ByteBuffer headBuf, int readLength) throws ReadRecoverableExeption, IOException, NullPointerException{
         for (int i = 0; i < readLength; i++) {
             byte[] bytes = new byte[1];
             // 从输入流中读数据，无数据时会阻塞
